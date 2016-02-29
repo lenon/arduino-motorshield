@@ -13,10 +13,10 @@ class MotorShield
     void stopLeft();
     void stopRight();
   private:
-    int speedPinLeft,
-        dirPinLeft,
-        speedPinRight,
-        dirPinRight,
-        maxSpeed,
-        minSpeed;
+    uint8_t speedPinLeft,
+            dirPinLeft,
+            speedPinRight,
+            dirPinRight,
+            maxSpeed,
+            minSpeed;
 };
