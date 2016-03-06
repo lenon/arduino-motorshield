@@ -9,7 +9,7 @@ file(GLOB SRC_FILES ../src/*.h ../src/*.cpp)
 add_library(MotorShieldLib ${SRC_FILES})
 
 # build test runner
-set(GTEST_DIR ../vendor/googletest)
+set(GTEST_DIR ../vendor/gtest)
 file(GLOB TESTS_FILES *.h *.cpp)
 include_directories(
   ${GTEST_DIR}

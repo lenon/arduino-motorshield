@@ -1,4 +1,4 @@
-[submodule "vendor/googletest"]
-	path = vendor/googletest
+[submodule "vendor/gtest"]
+	path = vendor/gtest
 	url = https://github.com/google/googletest.git
 	branch = master
