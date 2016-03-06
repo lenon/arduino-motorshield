@@ -2,3 +2,7 @@
 	path = vendor/gtest
 	url = https://github.com/google/googletest.git
 	branch = master
+[submodule "vendor/gmock"]
+	path = vendor/gmock
+	url = https://github.com/google/googlemock.git
+	branch = master
