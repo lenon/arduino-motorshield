@@ -19,3 +19,20 @@ TEST(MotorShield, Initialization) {
   ASSERT_EQ(DIR_L, mshield.getLeftDirPin());
   ASSERT_EQ(DIR_R, mshield.getRightDirPin());
 }
+
+TEST(MotorShield, Setup) {
+  ArduinoMock mock;
+
+  EXPECT_CALL(mock, pinMode(SPEED_L, OUTPUT));
+  EXPECT_CALL(mock, pinMode(DIR_L, OUTPUT));
+  EXPECT_CALL(mock, pinMode(SPEED_R, OUTPUT));
+  EXPECT_CALL(mock, pinMode(DIR_R, OUTPUT));
+
+  EXPECT_CALL(mock, analogWrite(SPEED_L, 0));
+  EXPECT_CALL(mock, analogWrite(SPEED_R, 0));
+
+  EXPECT_CALL(mock, digitalWrite(DIR_L, LOW));
+  EXPECT_CALL(mock, digitalWrite(DIR_R, LOW));
+
+  mshield.init();
+}
