@@ -1,3 +1,6 @@
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y zip
 language: cpp
 compiler:
   - clang
@@ -6,5 +9,14 @@ script:
   - mkdir build
   - cd build
   - cmake .. && make && make test
+  - cd ..
+  - cp -r src motor_shield
+  - zip -r motor_shield.zip motor_shield
 os:
   - linux
+deploy:
+  provider: releases
+  file: motor_shield.zip
+  skip_cleanup: true
+  on:
+    tags: true
