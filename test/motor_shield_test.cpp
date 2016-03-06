@@ -36,3 +36,55 @@ TEST(MotorShield, Setup) {
 
   mshield.init();
 }
+
+TEST(MotorShield, Forward) {
+  ArduinoMock mock;
+
+  EXPECT_CALL(mock, digitalWrite(DIR_L, LOW));
+  EXPECT_CALL(mock, digitalWrite(DIR_R, LOW));
+
+  mshield.forward();
+}
+
+TEST(MotorShield, Backward) {
+  ArduinoMock mock;
+
+  EXPECT_CALL(mock, digitalWrite(DIR_L, HIGH));
+  EXPECT_CALL(mock, digitalWrite(DIR_R, HIGH));
+
+  mshield.backward();
+}
+
+TEST(MotorShield, Stop) {
+  ArduinoMock mock;
+
+  EXPECT_CALL(mock, analogWrite(SPEED_L, 0));
+  EXPECT_CALL(mock, analogWrite(SPEED_R, 0));
+
+  mshield.stop();
+}
+
+TEST(MotorShield, FullSpeed) {
+  ArduinoMock mock;
+
+  EXPECT_CALL(mock, analogWrite(SPEED_L, 255));
+  EXPECT_CALL(mock, analogWrite(SPEED_R, 255));
+
+  mshield.fullSpeed();
+}
+
+TEST(MotorShield, StopLeft) {
+  ArduinoMock mock;
+
+  EXPECT_CALL(mock, analogWrite(SPEED_L, 0));
+
+  mshield.stopLeft();
+}
+
+TEST(MotorShield, StopRight) {
+  ArduinoMock mock;
+
+  EXPECT_CALL(mock, analogWrite(SPEED_R, 0));
+
+  mshield.stopRight();
+}
