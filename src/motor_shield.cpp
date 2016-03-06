@@ -1,57 +1,68 @@
 #include "motor_shield.h"
 
-MotorShield::MotorShield(uint8_t speedPinLeft, uint8_t dirPinLeft,
-    uint8_t speedPinRight, uint8_t dirPinRight)
+MotorShield::MotorShield(
+    uint8_t leftSpeedPin, uint8_t leftDirPin,
+    uint8_t rightSpeedPin, uint8_t rightDirPin)
 {
-  this->speedPinLeft = speedPinLeft;
-  this->dirPinLeft = dirPinLeft;
-  this->speedPinRight = speedPinRight;
-  this->dirPinRight = dirPinRight;
+  this->leftSpeedPin = leftSpeedPin;
+  this->leftDirPin = leftDirPin;
+
+  this->rightSpeedPin = rightSpeedPin;
+  this->rightDirPin = rightDirPin;
+
   this->maxSpeed = 255;
   this->minSpeed = 0;
 }
 
 void MotorShield::init()
 {
-  pinMode(speedPinLeft, OUTPUT);
-  pinMode(dirPinLeft, OUTPUT);
-  pinMode(speedPinRight, OUTPUT);
-  pinMode(dirPinRight, OUTPUT);
+  pinMode(leftSpeedPin, OUTPUT);
+  pinMode(leftDirPin, OUTPUT);
+  pinMode(rightSpeedPin, OUTPUT);
+  pinMode(rightDirPin, OUTPUT);
 
   stop();
   forward();
 }
 
+uint8_t MotorShield::getMaxSpeed() {
+  return maxSpeed;
+}
+
+uint8_t MotorShield::getMinSpeed() {
+  return minSpeed;
+}
+
 void MotorShield::forward()
 {
-  digitalWrite(dirPinLeft, LOW);
-  digitalWrite(dirPinRight, LOW);
+  digitalWrite(leftDirPin, LOW);
+  digitalWrite(rightDirPin, LOW);
 }
 
 void MotorShield::backward()
 {
-  digitalWrite(dirPinLeft, HIGH);
-  digitalWrite(dirPinRight, HIGH);
+  digitalWrite(leftDirPin, HIGH);
+  digitalWrite(rightDirPin, HIGH);
 }
 
 void MotorShield::stop()
 {
-  analogWrite(speedPinLeft, minSpeed);
-  analogWrite(speedPinRight, minSpeed);
+  analogWrite(leftSpeedPin, minSpeed);
+  analogWrite(rightSpeedPin, minSpeed);
 }
 
 void MotorShield::fullSpeed()
 {
-  analogWrite(speedPinLeft, maxSpeed);
-  analogWrite(speedPinRight, maxSpeed);
+  analogWrite(leftSpeedPin, maxSpeed);
+  analogWrite(rightSpeedPin, maxSpeed);
 }
 
 void MotorShield::stopLeft()
 {
-  analogWrite(speedPinLeft, 0);
+  analogWrite(leftSpeedPin, 0);
 }
 
 void MotorShield::stopRight()
 {
-  analogWrite(speedPinRight, 0);
+  analogWrite(rightSpeedPin, 0);
 }
