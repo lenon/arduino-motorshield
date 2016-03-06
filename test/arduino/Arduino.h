@@ -1,4 +1,4 @@
-#include <stdlib.h>
+#include <stdint.h>
 #include <gmock/gmock.h>
 
 #define HIGH 0x1
