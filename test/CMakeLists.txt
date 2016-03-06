@@ -24,5 +24,6 @@ add_executable(MotorShieldTests
   ${GTEST_DIR}/src/gtest_main.cc)
 target_link_libraries(MotorShieldTests
   ArduinoLib
-  MotorShieldLib)
+  MotorShieldLib
+  pthread)
 add_test(MotorShieldTests MotorShieldTests)
