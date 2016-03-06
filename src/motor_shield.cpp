@@ -33,6 +33,22 @@ uint8_t MotorShield::getMinSpeed() {
   return minSpeed;
 }
 
+uint8_t MotorShield::getLeftSpeedPin() {
+  return leftSpeedPin;
+}
+
+uint8_t MotorShield::getLeftDirPin() {
+  return leftDirPin;
+}
+
+uint8_t MotorShield::getRightSpeedPin() {
+  return rightSpeedPin;
+}
+
+uint8_t MotorShield::getRightDirPin() {
+  return rightDirPin;
+}
+
 void MotorShield::forward()
 {
   digitalWrite(leftDirPin, LOW);
