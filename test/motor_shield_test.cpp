@@ -9,93 +9,102 @@
 
 MotorShield mshield(SPEED_L, DIR_L, SPEED_R, DIR_R);
 
-TEST(MotorShield, Initialization) {
-  ASSERT_EQ(0, mshield.getMinSpeed());
-  ASSERT_EQ(255, mshield.getMaxSpeed());
+TEST(MotorShield, Initialization)
+{
+    ASSERT_EQ(0, mshield.getMinSpeed());
+    ASSERT_EQ(255, mshield.getMaxSpeed());
 
-  ASSERT_EQ(SPEED_L, mshield.getLeftSpeedPin());
-  ASSERT_EQ(SPEED_R, mshield.getRightSpeedPin());
+    ASSERT_EQ(SPEED_L, mshield.getLeftSpeedPin());
+    ASSERT_EQ(SPEED_R, mshield.getRightSpeedPin());
 
-  ASSERT_EQ(DIR_L, mshield.getLeftDirPin());
-  ASSERT_EQ(DIR_R, mshield.getRightDirPin());
+    ASSERT_EQ(DIR_L, mshield.getLeftDirPin());
+    ASSERT_EQ(DIR_R, mshield.getRightDirPin());
 }
 
-TEST(MotorShield, Setup) {
-  ArduinoMock mock;
+TEST(MotorShield, Setup)
+{
+    ArduinoMock mock;
 
-  EXPECT_CALL(mock, pinMode(SPEED_L, OUTPUT));
-  EXPECT_CALL(mock, pinMode(DIR_L, OUTPUT));
-  EXPECT_CALL(mock, pinMode(SPEED_R, OUTPUT));
-  EXPECT_CALL(mock, pinMode(DIR_R, OUTPUT));
+    EXPECT_CALL(mock, pinMode(SPEED_L, OUTPUT));
+    EXPECT_CALL(mock, pinMode(DIR_L, OUTPUT));
+    EXPECT_CALL(mock, pinMode(SPEED_R, OUTPUT));
+    EXPECT_CALL(mock, pinMode(DIR_R, OUTPUT));
 
-  EXPECT_CALL(mock, analogWrite(SPEED_L, 0));
-  EXPECT_CALL(mock, analogWrite(SPEED_R, 0));
+    EXPECT_CALL(mock, analogWrite(SPEED_L, 0));
+    EXPECT_CALL(mock, analogWrite(SPEED_R, 0));
 
-  EXPECT_CALL(mock, digitalWrite(DIR_L, LOW));
-  EXPECT_CALL(mock, digitalWrite(DIR_R, LOW));
+    EXPECT_CALL(mock, digitalWrite(DIR_L, LOW));
+    EXPECT_CALL(mock, digitalWrite(DIR_R, LOW));
 
-  mshield.init();
+    mshield.init();
 }
 
-TEST(MotorShield, Forward) {
-  ArduinoMock mock;
+TEST(MotorShield, Forward)
+{
+    ArduinoMock mock;
 
-  EXPECT_CALL(mock, digitalWrite(DIR_L, LOW));
-  EXPECT_CALL(mock, digitalWrite(DIR_R, LOW));
+    EXPECT_CALL(mock, digitalWrite(DIR_L, LOW));
+    EXPECT_CALL(mock, digitalWrite(DIR_R, LOW));
 
-  mshield.forward();
+    mshield.forward();
 }
 
-TEST(MotorShield, Backward) {
-  ArduinoMock mock;
+TEST(MotorShield, Backward)
+{
+    ArduinoMock mock;
 
-  EXPECT_CALL(mock, digitalWrite(DIR_L, HIGH));
-  EXPECT_CALL(mock, digitalWrite(DIR_R, HIGH));
+    EXPECT_CALL(mock, digitalWrite(DIR_L, HIGH));
+    EXPECT_CALL(mock, digitalWrite(DIR_R, HIGH));
 
-  mshield.backward();
+    mshield.backward();
 }
 
-TEST(MotorShield, Stop) {
-  ArduinoMock mock;
+TEST(MotorShield, Stop)
+{
+    ArduinoMock mock;
 
-  EXPECT_CALL(mock, analogWrite(SPEED_L, 0));
-  EXPECT_CALL(mock, analogWrite(SPEED_R, 0));
+    EXPECT_CALL(mock, analogWrite(SPEED_L, 0));
+    EXPECT_CALL(mock, analogWrite(SPEED_R, 0));
 
-  mshield.stop();
+    mshield.stop();
 }
 
-TEST(MotorShield, FullSpeed) {
-  ArduinoMock mock;
+TEST(MotorShield, FullSpeed)
+{
+    ArduinoMock mock;
 
-  EXPECT_CALL(mock, analogWrite(SPEED_L, 255));
-  EXPECT_CALL(mock, analogWrite(SPEED_R, 255));
+    EXPECT_CALL(mock, analogWrite(SPEED_L, 255));
+    EXPECT_CALL(mock, analogWrite(SPEED_R, 255));
 
-  mshield.fullSpeed();
+    mshield.fullSpeed();
 }
 
-TEST(MotorShield, StopLeft) {
-  ArduinoMock mock;
+TEST(MotorShield, StopLeft)
+{
+    ArduinoMock mock;
 
-  EXPECT_CALL(mock, analogWrite(SPEED_L, 0));
+    EXPECT_CALL(mock, analogWrite(SPEED_L, 0));
 
-  mshield.stopLeft();
+    mshield.stopLeft();
 }
 
-TEST(MotorShield, StopRight) {
-  ArduinoMock mock;
+TEST(MotorShield, StopRight)
+{
+    ArduinoMock mock;
 
-  EXPECT_CALL(mock, analogWrite(SPEED_R, 0));
+    EXPECT_CALL(mock, analogWrite(SPEED_R, 0));
 
-  mshield.stopRight();
+    mshield.stopRight();
 }
 
-TEST(MotorShield, SetSpeed) {
-  ArduinoMock mock;
+TEST(MotorShield, SetSpeed)
+{
+    ArduinoMock mock;
 
-  EXPECT_CALL(mock, analogWrite(SPEED_L, 101));
-  EXPECT_CALL(mock, analogWrite(SPEED_R, 101));
+    EXPECT_CALL(mock, analogWrite(SPEED_L, 101));
+    EXPECT_CALL(mock, analogWrite(SPEED_R, 101));
 
-  mshield.setSpeed(101);
+    mshield.setSpeed(101);
 
-  ASSERT_EQ(101, mshield.getSpeed());
+    ASSERT_EQ(101, mshield.getSpeed());
 }

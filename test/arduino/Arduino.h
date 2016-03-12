@@ -9,7 +9,7 @@
 
 class ArduinoMock
 {
-  public:
+public:
     ArduinoMock();
     MOCK_METHOD2(pinMode, void(uint8_t, uint8_t));
     MOCK_METHOD2(digitalWrite, void(uint8_t, uint8_t));
@@ -17,7 +17,7 @@ class ArduinoMock
 };
 
 extern "C" {
-  void pinMode(uint8_t, uint8_t);
-  void digitalWrite(uint8_t, uint8_t);
-  void analogWrite(uint8_t, int);
+    void pinMode(uint8_t, uint8_t);
+    void digitalWrite(uint8_t, uint8_t);
+    void analogWrite(uint8_t, int);
 }

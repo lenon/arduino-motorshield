@@ -2,9 +2,9 @@
 
 class MotorShield
 {
-  public:
+public:
     MotorShield(uint8_t leftSpeedPin, uint8_t leftDirPin,
-        uint8_t rightSpeedPin, uint8_t rightDirPin);
+                uint8_t rightSpeedPin, uint8_t rightDirPin);
     void init();
     void forward();
     void backward();
@@ -20,7 +20,7 @@ class MotorShield
     uint8_t getRightDirPin();
     uint8_t getSpeed();
     void setSpeed(uint8_t);
-  private:
+private:
     uint8_t leftSpeedPin,
             leftDirPin,
             rightSpeedPin,
