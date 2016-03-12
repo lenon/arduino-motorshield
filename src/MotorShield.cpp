@@ -35,11 +35,6 @@ uint8_t MotorShield::getMinSpeed()
     return minSpeed;
 }
 
-uint8_t MotorShield::getSpeed()
-{
-    return speed;
-}
-
 uint8_t MotorShield::getLeftSpeedPin()
 {
     return leftSpeedPin;
@@ -82,34 +77,10 @@ void MotorShield::backward()
     digitalWrite(rightDirPin, HIGH);
 }
 
-void MotorShield::stop()
-{
-    analogWrite(leftSpeedPin, 0);
-    analogWrite(rightSpeedPin, 0);
-}
-
-void MotorShield::fullSpeed()
-{
-    this->speed = maxSpeed;
-    analogWrite(leftSpeedPin, maxSpeed);
-    analogWrite(rightSpeedPin, maxSpeed);
-}
-
-void MotorShield::stopLeft()
-{
-    analogWrite(leftSpeedPin, 0);
-}
-
-void MotorShield::stopRight()
-{
-    analogWrite(rightSpeedPin, 0);
-}
-
 void MotorShield::setSpeed(uint8_t speed)
 {
-    this->speed = speed;
-    analogWrite(leftSpeedPin, speed);
-    analogWrite(rightSpeedPin, speed);
+    setLeftSpeed(speed);
+    setRightSpeed(speed);
 }
 
 void MotorShield::setLeftSpeed(uint8_t speed)
@@ -122,4 +93,24 @@ void MotorShield::setRightSpeed(uint8_t speed)
 {
     this->rightSpeed = speed;
     analogWrite(rightSpeedPin, speed);
+}
+
+void MotorShield::stop()
+{
+    setSpeed(0);
+}
+
+void MotorShield::fullSpeed()
+{
+    setSpeed(maxSpeed);
+}
+
+void MotorShield::stopLeft()
+{
+    setLeftSpeed(0);
+}
+
+void MotorShield::stopRight()
+{
+    setRightSpeed(0);
 }

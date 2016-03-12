@@ -67,6 +67,9 @@ TEST(MotorShield, Stop)
     EXPECT_CALL(mock, analogWrite(SPEED_R, 0));
 
     mshield.stop();
+
+    ASSERT_EQ(0, mshield.getLeftSpeed());
+    ASSERT_EQ(0, mshield.getRightSpeed());
 }
 
 TEST(MotorShield, FullSpeed)
@@ -78,7 +81,8 @@ TEST(MotorShield, FullSpeed)
 
     mshield.fullSpeed();
 
-    ASSERT_EQ(255, mshield.getSpeed());
+    ASSERT_EQ(255, mshield.getLeftSpeed());
+    ASSERT_EQ(255, mshield.getRightSpeed());
 }
 
 TEST(MotorShield, StopLeft)
@@ -88,6 +92,8 @@ TEST(MotorShield, StopLeft)
     EXPECT_CALL(mock, analogWrite(SPEED_L, 0));
 
     mshield.stopLeft();
+
+    ASSERT_EQ(0, mshield.getLeftSpeed());
 }
 
 TEST(MotorShield, StopRight)
@@ -97,6 +103,8 @@ TEST(MotorShield, StopRight)
     EXPECT_CALL(mock, analogWrite(SPEED_R, 0));
 
     mshield.stopRight();
+
+    ASSERT_EQ(0, mshield.getRightSpeed());
 }
 
 TEST(MotorShield, SetSpeed)
@@ -108,7 +116,8 @@ TEST(MotorShield, SetSpeed)
 
     mshield.setSpeed(101);
 
-    ASSERT_EQ(101, mshield.getSpeed());
+    ASSERT_EQ(101, mshield.getLeftSpeed());
+    ASSERT_EQ(101, mshield.getRightSpeed());
 }
 
 TEST(MotorShield, SetLeftSpeed)
