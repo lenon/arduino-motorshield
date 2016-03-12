@@ -18,11 +18,14 @@ class MotorShield
     uint8_t getLeftDirPin();
     uint8_t getRightSpeedPin();
     uint8_t getRightDirPin();
+    uint8_t getSpeed();
+    void setSpeed(uint8_t);
   private:
     uint8_t leftSpeedPin,
             leftDirPin,
             rightSpeedPin,
             rightDirPin,
             maxSpeed,
-            minSpeed;
+            minSpeed,
+            speed;
 };

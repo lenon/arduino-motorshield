@@ -88,3 +88,14 @@ TEST(MotorShield, StopRight) {
 
   mshield.stopRight();
 }
+
+TEST(MotorShield, SetSpeed) {
+  ArduinoMock mock;
+
+  EXPECT_CALL(mock, analogWrite(SPEED_L, 101));
+  EXPECT_CALL(mock, analogWrite(SPEED_R, 101));
+
+  mshield.setSpeed(101);
+
+  ASSERT_EQ(101, mshield.getSpeed());
+}

@@ -82,3 +82,15 @@ void MotorShield::stopRight()
 {
   analogWrite(rightSpeedPin, 0);
 }
+
+void MotorShield::setSpeed(uint8_t speed)
+{
+  this->speed = speed;
+  analogWrite(leftSpeedPin, speed);
+  analogWrite(rightSpeedPin, speed);
+}
+
+uint8_t MotorShield::getSpeed()
+{
+  return speed;
+}
