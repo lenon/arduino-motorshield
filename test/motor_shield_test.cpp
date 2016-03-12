@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "motor_shield.h"
+#include "MotorShield.h"
 
 #define SPEED_L 1
 #define DIR_L 2
