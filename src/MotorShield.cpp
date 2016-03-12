@@ -63,8 +63,8 @@ void MotorShield::backward()
 
 void MotorShield::stop()
 {
-  analogWrite(leftSpeedPin, minSpeed);
-  analogWrite(rightSpeedPin, minSpeed);
+  analogWrite(leftSpeedPin, 0);
+  analogWrite(rightSpeedPin, 0);
 }
 
 void MotorShield::fullSpeed()
