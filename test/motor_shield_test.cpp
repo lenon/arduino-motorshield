@@ -77,6 +77,8 @@ TEST(MotorShield, FullSpeed)
     EXPECT_CALL(mock, analogWrite(SPEED_R, 255));
 
     mshield.fullSpeed();
+
+    ASSERT_EQ(255, mshield.getSpeed());
 }
 
 TEST(MotorShield, StopLeft)
