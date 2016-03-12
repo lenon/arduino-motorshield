@@ -110,3 +110,25 @@ TEST(MotorShield, SetSpeed)
 
     ASSERT_EQ(101, mshield.getSpeed());
 }
+
+TEST(MotorShield, SetLeftSpeed)
+{
+    ArduinoMock mock;
+
+    EXPECT_CALL(mock, analogWrite(SPEED_L, 99));
+
+    mshield.setLeftSpeed(99);
+
+    ASSERT_EQ(99, mshield.getLeftSpeed());
+}
+
+TEST(MotorShield, SetRightSpeed)
+{
+    ArduinoMock mock;
+
+    EXPECT_CALL(mock, analogWrite(SPEED_R, 100));
+
+    mshield.setRightSpeed(100);
+
+    ASSERT_EQ(100, mshield.getRightSpeed());
+}

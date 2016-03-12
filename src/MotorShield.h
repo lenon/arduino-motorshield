@@ -19,7 +19,11 @@ public:
     uint8_t getRightSpeedPin();
     uint8_t getRightDirPin();
     uint8_t getSpeed();
+    uint8_t getLeftSpeed();
+    uint8_t getRightSpeed();
     void setSpeed(uint8_t);
+    void setLeftSpeed(uint8_t);
+    void setRightSpeed(uint8_t);
 private:
     uint8_t leftSpeedPin,
             leftDirPin,
@@ -27,5 +31,7 @@ private:
             rightDirPin,
             maxSpeed,
             minSpeed,
-            speed;
+            speed,
+            leftSpeed,
+            rightSpeed;
 };
