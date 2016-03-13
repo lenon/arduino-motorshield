@@ -10,14 +10,13 @@ script:
   - cd build
   - cmake .. && make && make test
   - cd ..
-  - cp -r src motor_shield
-  - zip -r motor_shield.zip motor_shield
+  - cp -r src MotorShield && zip -r MotorShield.zip MotorShield
 os:
   - linux
 deploy:
   provider: releases
   api_key: $GITHUB_API_TOKEN
-  file: motor_shield.zip
+  file: MotorShield-${TRAVIS_TAG:1}.zip
   skip_cleanup: true
   on:
     tags: true
