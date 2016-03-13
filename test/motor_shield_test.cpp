@@ -9,7 +9,7 @@
 
 MotorShield mshield(SPEED_L, DIR_L, SPEED_R, DIR_R);
 
-TEST(MotorShield, Initialization)
+TEST(MotorShield, constructor)
 {
     ASSERT_EQ(0, mshield.getMinSpeed());
     ASSERT_EQ(255, mshield.getMaxSpeed());
@@ -21,7 +21,7 @@ TEST(MotorShield, Initialization)
     ASSERT_EQ(DIR_R, mshield.getRightDirPin());
 }
 
-TEST(MotorShield, Setup)
+TEST(MotorShield, init)
 {
     ArduinoMock mock;
 
@@ -39,7 +39,7 @@ TEST(MotorShield, Setup)
     mshield.init();
 }
 
-TEST(MotorShield, Forward)
+TEST(MotorShield, forward)
 {
     ArduinoMock mock;
 
@@ -49,7 +49,7 @@ TEST(MotorShield, Forward)
     mshield.forward();
 }
 
-TEST(MotorShield, Backward)
+TEST(MotorShield, backward)
 {
     ArduinoMock mock;
 
@@ -59,7 +59,7 @@ TEST(MotorShield, Backward)
     mshield.backward();
 }
 
-TEST(MotorShield, Stop)
+TEST(MotorShield, stop)
 {
     ArduinoMock mock;
 
@@ -72,7 +72,7 @@ TEST(MotorShield, Stop)
     ASSERT_EQ(0, mshield.getRightSpeed());
 }
 
-TEST(MotorShield, FullSpeed)
+TEST(MotorShield, fullSpeed)
 {
     ArduinoMock mock;
 
@@ -85,7 +85,7 @@ TEST(MotorShield, FullSpeed)
     ASSERT_EQ(255, mshield.getRightSpeed());
 }
 
-TEST(MotorShield, StopLeft)
+TEST(MotorShield, stopLeft)
 {
     ArduinoMock mock;
 
@@ -96,7 +96,7 @@ TEST(MotorShield, StopLeft)
     ASSERT_EQ(0, mshield.getLeftSpeed());
 }
 
-TEST(MotorShield, StopRight)
+TEST(MotorShield, stopRight)
 {
     ArduinoMock mock;
 
@@ -107,7 +107,7 @@ TEST(MotorShield, StopRight)
     ASSERT_EQ(0, mshield.getRightSpeed());
 }
 
-TEST(MotorShield, SetSpeed)
+TEST(MotorShield, setSpeed)
 {
     ArduinoMock mock;
 
@@ -120,7 +120,7 @@ TEST(MotorShield, SetSpeed)
     ASSERT_EQ(101, mshield.getRightSpeed());
 }
 
-TEST(MotorShield, SetLeftSpeed)
+TEST(MotorShield, setLeftSpeed)
 {
     ArduinoMock mock;
 
@@ -131,7 +131,7 @@ TEST(MotorShield, SetLeftSpeed)
     ASSERT_EQ(99, mshield.getLeftSpeed());
 }
 
-TEST(MotorShield, SetRightSpeed)
+TEST(MotorShield, setRightSpeed)
 {
     ArduinoMock mock;
 
