@@ -134,6 +134,28 @@ TEST(MotorShield, setLeftSpeed)
     ASSERT_EQ(99, mshield.getLeftSpeed());
 }
 
+TEST(MotorShield, setLeftSpeedGreaterThanMaxSpeed)
+{
+    ArduinoMock mock;
+
+    EXPECT_CALL(mock, analogWrite(SPEED_L, 255));
+
+    mshield.setLeftSpeed(256);
+
+    ASSERT_EQ(255, mshield.getLeftSpeed());
+}
+
+TEST(MotorShield, setLeftSpeedLowerThanMinSpeed)
+{
+    ArduinoMock mock;
+
+    EXPECT_CALL(mock, analogWrite(SPEED_L, 0));
+
+    mshield.setLeftSpeed(-1);
+
+    ASSERT_EQ(0, mshield.getLeftSpeed());
+}
+
 TEST(MotorShield, setRightSpeed)
 {
     ArduinoMock mock;
@@ -143,4 +165,26 @@ TEST(MotorShield, setRightSpeed)
     mshield.setRightSpeed(100);
 
     ASSERT_EQ(100, mshield.getRightSpeed());
+}
+
+TEST(MotorShield, setRightSpeedGreaterThanMaxSpeed)
+{
+    ArduinoMock mock;
+
+    EXPECT_CALL(mock, analogWrite(SPEED_R, 255));
+
+    mshield.setRightSpeed(256);
+
+    ASSERT_EQ(255, mshield.getRightSpeed());
+}
+
+TEST(MotorShield, setRightSpeedLowerThanMinSpeed)
+{
+    ArduinoMock mock;
+
+    EXPECT_CALL(mock, analogWrite(SPEED_R, 0));
+
+    mshield.setRightSpeed(-1);
+
+    ASSERT_EQ(0, mshield.getRightSpeed());
 }

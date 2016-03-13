@@ -86,10 +86,34 @@ void MotorShield::setSpeed(uint8_t speed)
     setRightSpeed(speed);
 }
 
+void MotorShield::setLeftSpeed(int speed) {
+    if (speed > maxSpeed) {
+        speed = maxSpeed;
+    }
+
+    if (speed < minSpeed) {
+        speed = minSpeed;
+    }
+
+    setLeftSpeed((uint8_t) speed);
+}
+
 void MotorShield::setLeftSpeed(uint8_t speed)
 {
     this->leftSpeed = speed;
     analogWrite(leftSpeedPin, speed);
+}
+
+void MotorShield::setRightSpeed(int speed) {
+    if (speed > maxSpeed) {
+        speed = maxSpeed;
+    }
+
+    if (speed < minSpeed) {
+        speed = minSpeed;
+    }
+
+    setRightSpeed((uint8_t) speed);
 }
 
 void MotorShield::setRightSpeed(uint8_t speed)

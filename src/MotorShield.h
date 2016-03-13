@@ -55,9 +55,11 @@ public:
     void setSpeed(uint8_t);
 
     // Sets the speed of the left motor.
+    void setLeftSpeed(int);
     void setLeftSpeed(uint8_t);
 
     // Sets the speed of the right motor.
+    void setRightSpeed(int);
     void setRightSpeed(uint8_t);
 private:
     uint8_t leftSpeedPin,
