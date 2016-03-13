@@ -10,7 +10,11 @@ script:
   - cd build
   - cmake .. && make && make test
   - cd ..
-  - cp -r src MotorShield && zip -r MotorShield.zip MotorShield
+  - |
+    if [ -n "${TRAVIS_TAG}" ]; then
+      cp -r src MotorShield &&
+        zip -r MotorShield-${TRAVIS_TAG:1}.zip MotorShield
+    fi
 os:
   - linux
 deploy:
