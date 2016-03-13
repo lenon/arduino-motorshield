@@ -1,6 +1,9 @@
 #include <stdint.h>
 #include <gmock/gmock.h>
 
+#ifndef ARDUINO_H
+#define ARDUINO_H
+
 #define HIGH 0x1
 #define LOW 0x0
 
@@ -21,3 +24,5 @@ extern "C" {
     void digitalWrite(uint8_t, uint8_t);
     void analogWrite(uint8_t, int);
 }
+
+#endif // ifndef ARDUINO_H
