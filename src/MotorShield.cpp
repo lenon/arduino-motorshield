@@ -24,7 +24,7 @@ void MotorShield::init()
     pinMode(rightSpeedPin, OUTPUT);
     pinMode(rightDirPin, OUTPUT);
 
-    stop();
+    setSpeed(0);
     forward();
 }
 
