@@ -19,6 +19,9 @@ TEST(MotorShield, constructor)
 
     ASSERT_EQ(DIR_L, mshield.getLeftDirPin());
     ASSERT_EQ(DIR_R, mshield.getRightDirPin());
+
+    ASSERT_EQ(0, mshield.getLeftSpeed());
+    ASSERT_EQ(0, mshield.getRightSpeed());
 }
 
 TEST(MotorShield, init)

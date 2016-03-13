@@ -12,6 +12,9 @@ MotorShield::MotorShield(
 
     this->maxSpeed = 255;
     this->minSpeed = 0;
+
+    this->leftSpeed = 0;
+    this->rightSpeed = 0;
 }
 
 void MotorShield::init()
