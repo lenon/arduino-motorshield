@@ -17,13 +17,13 @@ include_directories(
   ${GMOCK_DIR}/include
   ${GTEST_DIR}
   ${GTEST_DIR}/include)
-add_executable(MotorShieldTests
+add_executable(TestRunner
   ${TESTS_FILES}
   ${GMOCK_DIR}/src/gmock-all.cc
   ${GTEST_DIR}/src/gtest-all.cc
   ${GTEST_DIR}/src/gtest_main.cc)
-target_link_libraries(MotorShieldTests
+target_link_libraries(TestRunner
   ArduinoLib
   MotorShieldLib
   pthread)
-add_test(MotorShieldTests MotorShieldTests)
+add_test(TestRunner TestRunner)
