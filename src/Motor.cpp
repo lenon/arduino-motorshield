@@ -74,11 +74,13 @@ void Motor::fullSpeed()
 
 void Motor::setSpeed(uint8_t value)
 {
-    if (value > maxSpeed) {
+    if (value > maxSpeed)
+    {
         value = maxSpeed;
     }
 
-    if (value < minSpeed) {
+    if (value < minSpeed)
+    {
         value = minSpeed;
     }
 
